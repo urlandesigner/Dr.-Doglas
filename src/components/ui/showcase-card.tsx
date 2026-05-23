@@ -57,7 +57,7 @@ export function ShowcaseCard({
       <div className="flex flex-col sm:flex-row">
         {/* Image */}
         {imageUrl && (
-          <div className="relative flex w-full shrink-0 items-end justify-center sm:w-44">
+          <div className="relative hidden w-full shrink-0 items-end justify-center sm:flex sm:w-44">
             <div className="pointer-events-none absolute bottom-6 left-1/2 h-44 w-44 -translate-x-1/2 rounded-full bg-[#0ea5e9]/20 blur-3xl" />
             <Image
               src={imageUrl}

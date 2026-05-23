@@ -34,6 +34,8 @@ export default function Sobre() {
             brandName="CRM 9607 ES · RQE 9954 · RQE 8307"
             heading="Dr. Doglas Gobbi Marchesi"
             description="Com mais de 15 anos dedicados à cirurgia, é referência regional em cirurgia bariátrica e do aparelho digestivo. Compromisso com o melhor tratamento cirúrgico aliado ao acolhimento humano."
+            imageUrl="/images/image-doglas.png"
+            imageAlt="Dr. Doglas Gobbi Marchesi"
             services={["Cirurgia Geral", "Bariátrica", "Aparelho Digestivo"]}
             ctaText="Agendar consulta"
             ctaHref="#contato"

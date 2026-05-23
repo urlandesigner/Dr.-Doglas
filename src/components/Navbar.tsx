@@ -259,22 +259,20 @@ export default function Navbar() {
 
         {/* Rodapé do painel — contato rápido */}
         <div className="relative shrink-0 border-t border-white/10 px-6 py-5">
-          <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/40">
-            Fale com a gente
-          </p>
-          <div className="flex items-center gap-3">
-            <a
-              href="https://www.instagram.com/drdoglasmarchesi/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram do Dr. Doglas Marchesi"
-              className="grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/[0.06] text-white/85 transition-colors hover:border-brand/50 hover:text-brand"
-            >
+          <a
+            href="https://www.instagram.com/drdoglasmarchesi/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram do Dr. Doglas Marchesi"
+            className="group inline-flex items-center gap-2.5 text-sm text-white/70 transition-colors hover:text-brand"
+          >
+            <span>@drdoglasmarchesi</span>
+            <span className="grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/[0.06] text-white/85 transition-colors group-hover:border-brand/50 group-hover:text-brand">
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.5 0-4.74.07-.9.04-1.38.19-1.71.31-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.12.33-.27.81-.31 1.71C3.42 8.5 3.42 8.85 3.42 12s0 3.5.07 4.74c.04.9.19 1.38.31 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.33.12.81.27 1.71.31 1.24.07 1.59.07 4.74.07s3.5 0 4.74-.07c.9-.04 1.38-.19 1.71-.31.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.12-.33.27-.81.31-1.71.07-1.24.07-1.59.07-4.74s0-3.5-.07-4.74c-.04-.9-.19-1.38-.31-1.71a2.86 2.86 0 0 0-.69-1.06 2.86 2.86 0 0 0-1.06-.69c-.33-.12-.81-.27-1.71-.31C15.5 4 15.15 4 12 4Zm0 3.06A4.94 4.94 0 1 1 12 16.94 4.94 4.94 0 0 1 12 7.06Zm0 1.8a3.14 3.14 0 1 0 0 6.28 3.14 3.14 0 0 0 0-6.28Zm5.14-3.24a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3Z" />
               </svg>
-            </a>
-          </div>
+            </span>
+          </a>
         </div>
       </aside>
     </>
