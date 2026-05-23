@@ -78,7 +78,7 @@ export default function Navbar() {
             alt="Dr. Doglas Gobbi – Cirurgia Digestiva"
             width={160}
             height={50}
-            className="h-10 w-auto object-contain"
+            className="h-14 w-auto object-contain"
             priority
           />
         </a>
