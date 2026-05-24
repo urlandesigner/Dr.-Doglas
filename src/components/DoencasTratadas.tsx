@@ -9,7 +9,7 @@ const doencas = [
 
 export default function DoencasTratadas() {
   return (
-    <section id="doencas" className="relative py-24 bg-white">
+    <section id="doencas" className="relative py-14 md:py-24 bg-white">
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-14">
           <span className="text-[#B79853] text-xs font-semibold tracking-[0.25em] uppercase">

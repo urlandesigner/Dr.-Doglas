@@ -8,7 +8,7 @@ const convenios = [
 
 export default function Convenios() {
   return (
-    <section className="py-16 bg-[#f6f6f4]">
+    <section className="py-10 md:py-16 bg-[#f6f6f4]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-10">
           <span className="text-[#B79853] text-sm font-semibold tracking-widest uppercase">

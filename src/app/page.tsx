@@ -5,6 +5,7 @@ import Especialidades from "@/components/Especialidades";
 import DoencasTratadas from "@/components/DoencasTratadas";
 import Procedimentos from "@/components/Procedimentos";
 import CirurgiaRobotica from "@/components/CirurgiaRobotica";
+import TransplanteOrgaos from "@/components/TransplanteOrgaos";
 import Depoimentos from "@/components/Depoimentos";
 import Convenios from "@/components/Convenios";
 import FAQ from "@/components/FAQ";
@@ -22,6 +23,7 @@ export default function Home() {
         <DoencasTratadas />
         <Procedimentos />
         <CirurgiaRobotica />
+        <TransplanteOrgaos />
         <Convenios />
         <Depoimentos />
         <FAQ />

@@ -57,11 +57,31 @@ function Estrelas({ n }: { n: number }) {
   );
 }
 
+function Card({ dep }: { dep: typeof depoimentos[0] }) {
+  return (
+    <div className="bg-[#f5f5f4] rounded-2xl p-6 flex flex-col">
+      <Estrelas n={dep.estrelas} />
+      <p className="text-text-body text-sm leading-relaxed mt-4 mb-6 flex-1">
+        &ldquo;{dep.texto}&rdquo;
+      </p>
+      <div className="flex items-center gap-3 pt-4 border-t border-black/5">
+        <div className="w-9 h-9 rounded-full bg-[#0f2444] flex items-center justify-center shrink-0">
+          <span className="text-text-on-dark text-xs font-bold">{dep.nome[0]}</span>
+        </div>
+        <div>
+          <p className="font-semibold text-text-title text-sm">{dep.nome}</p>
+          <p className="text-[#0ea5e9] text-xs">{dep.cirurgia}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Depoimentos() {
   return (
-    <section id="depoimentos" className="py-24 bg-white">
+    <section id="depoimentos" className="py-14 md:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <span className="text-[#B79853] text-sm font-semibold tracking-widest uppercase">
             Histórias reais
           </span>
@@ -70,37 +90,34 @@ export default function Depoimentos() {
           </h2>
           <div className="w-16 h-0.5 bg-[#B79853] mx-auto mt-5" />
         </div>
+      </div>
 
+      {/* Mobile: marquee automático */}
+      <div className="md:hidden">
+        <div className="flex animate-depo-scroll gap-4 w-max">
+          {[...depoimentos, ...depoimentos].map((dep, i) => (
+            <div key={i} className="w-[272px] shrink-0">
+              <Card dep={dep} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop: grid */}
+      <div className="hidden md:block max-w-7xl mx-auto px-6">
         <div className="relative">
           <DotPattern className="-top-7 -left-7 w-24 h-24 opacity-50" />
           <DotPattern className="-bottom-7 -right-7 w-24 h-24 opacity-50" />
           <div className="relative grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {depoimentos.map((dep) => (
-            <div
-              key={dep.nome}
-              className="bg-[#f5f5f4] rounded-2xl p-6 hover:-translate-y-1 transition-all duration-200"
-            >
-              <Estrelas n={dep.estrelas} />
-
-              <p className="text-text-body text-sm leading-relaxed mt-4 mb-6">
-                &ldquo;{dep.texto}&rdquo;
-              </p>
-
-              <div className="flex items-center gap-3 pt-4">
-                <div className="w-9 h-9 rounded-full bg-[#0f2444] flex items-center justify-center">
-                  <span className="text-text-on-dark text-xs font-bold">{dep.nome[0]}</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-text-title text-sm">{dep.nome}</p>
-                  <p className="text-[#0ea5e9] text-xs">{dep.cirurgia}</p>
-                </div>
-              </div>
-            </div>
-          ))}
+            {depoimentos.map((dep) => (
+              <Card key={dep.nome} dep={dep} />
+            ))}
           </div>
         </div>
+      </div>
 
-        {/* Trust badges */}
+      {/* Trust badges */}
+      <div className="max-w-7xl mx-auto px-6">
         <div className="mt-12 flex flex-wrap justify-center gap-8">
           {[
             { valor: "4.9/5", desc: "Avaliação média" },

@@ -66,7 +66,7 @@ const WhatsAppIcon = () => (
 
 export default function Contato() {
   return (
-    <section id="contato" className="py-24 bg-white">
+    <section id="contato" className="py-14 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <span className="text-[#B79853] text-sm font-semibold tracking-widest uppercase">

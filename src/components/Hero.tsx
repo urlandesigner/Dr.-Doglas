@@ -102,7 +102,7 @@ export default function Hero() {
                 to: 15,
                 suffix: "+",
                 label: "Anos de experiência",
-                pos: "top-[44%] -right-2 md:-right-8",
+                pos: "top-[28%] md:top-[44%] -right-2 md:-right-8",
                 icon: (
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 14a5 5 0 100-10 5 5 0 000 10z" />
@@ -125,7 +125,7 @@ export default function Hero() {
                 to: 98,
                 suffix: "%",
                 label: "Satisfação",
-                pos: "bottom-14 -right-1 md:-right-5",
+                pos: "bottom-2 md:bottom-14 -right-1 md:-right-5",
                 icon: (
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12.6L12 20l-7.5-7.4a4.6 4.6 0 016.5-6.5L12 7l1-.9a4.6 4.6 0 016.5 6.5z" />

@@ -146,6 +146,19 @@ body {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@keyframes depo-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-depo-scroll {
+  animation: depo-scroll 28s linear infinite;
+}
+
+.animate-depo-scroll:hover {
+  animation-play-state: paused;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

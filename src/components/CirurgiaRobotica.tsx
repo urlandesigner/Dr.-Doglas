@@ -45,7 +45,7 @@ export default function CirurgiaRobotica() {
   return (
     <section
       id="robotica"
-      className="relative overflow-hidden bg-[#0b1c38] py-24 md:py-28"
+      className="relative overflow-hidden bg-[#0b1c38] py-14 md:py-28"
     >
       {/* Glows ambiente */}
       <div className="pointer-events-none absolute -left-20 top-1/4 h-80 w-80 rounded-full bg-[#0ea5e9]/10 blur-[120px]" />

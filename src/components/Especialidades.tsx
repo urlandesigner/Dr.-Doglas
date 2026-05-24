@@ -68,7 +68,7 @@ function Arrow() {
 
 export default function Especialidades() {
   return (
-    <section id="especialidades" className="py-28 bg-white">
+    <section id="especialidades" className="py-14 md:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Intro */}
         <div className="text-center max-w-2xl mx-auto mb-20">

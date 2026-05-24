@@ -126,7 +126,7 @@ export default function Procedimentos() {
   return (
     <section
       id="procedimentos"
-      className="relative py-24"
+      className="relative py-14 md:py-24"
       style={{
         background:
           "radial-gradient(ellipse at 72% 0%, rgba(183,152,83,0.055) 0%, transparent 52%), radial-gradient(ellipse at 4% 100%, rgba(15,36,68,0.04) 0%, transparent 48%), #ffffff",
