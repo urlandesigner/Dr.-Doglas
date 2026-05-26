@@ -136,7 +136,7 @@ export default function Home() {
         <Procedimentos />
         <CirurgiaRobotica />
         <TransplanteOrgaos />
-        <Convenios />
+        {/* <Convenios /> */}
         <Depoimentos />
         <FAQ />
         <Contato />
