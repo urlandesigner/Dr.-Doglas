@@ -116,21 +116,6 @@ export default function Depoimentos() {
         </div>
       </div>
 
-      {/* Trust badges */}
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="mt-12 flex flex-wrap justify-center gap-8">
-          {[
-            { valor: "4.9/5", desc: "Avaliação média" },
-            { valor: "500+", desc: "Avaliações verificadas" },
-            { valor: "98%", desc: "Recomendariam o Dr. Doglas" },
-          ].map((badge) => (
-            <div key={badge.desc} className="text-center">
-              <div className="text-text-title font-bold text-2xl section-heading">{badge.valor}</div>
-              <div className="text-text-body text-sm">{badge.desc}</div>
-            </div>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }

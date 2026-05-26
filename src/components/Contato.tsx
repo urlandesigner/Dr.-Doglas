@@ -1,57 +1,7 @@
 import Image from "next/image";
 import { DotPattern } from "./ui/dot-pattern";
-
-type Unidade = {
-  nome: string;
-  endereco: string;
-  bairro: string;
-  cidade: string;
-  telefones: { label: string; tel: string }[];
-  whatsapp?: string;
-  maps: string;
-};
-
-const unidades: Unidade[] = [
-  {
-    nome: "Hospital Meridional Cariacica",
-    endereco: "Rua Meridional, 200",
-    bairro: "Trevo de Alto Laje",
-    cidade: "Cariacica – ES",
-    telefones: [
-      { label: "(27) 3345-2010", tel: "+552733452010" },
-      { label: "(27) 3346-2015", tel: "+552733462015" },
-    ],
-    maps: "https://www.google.com/maps/search/?api=1&query=Hospital+Meridional+Cariacica+Rua+Meridional+200+Trevo+de+Alto+Laje",
-  },
-  {
-    nome: "Centro de Especialidades Praia da Costa",
-    endereco: "Rua Castelo Branco, 676",
-    bairro: "Praia da Costa",
-    cidade: "Vila Velha – ES",
-    telefones: [{ label: "(27) 2121-0200", tel: "+552721210200" }],
-    maps: "https://www.google.com/maps/search/?api=1&query=Rua+Castelo+Branco+676+Praia+da+Costa+Vila+Velha+ES",
-  },
-  {
-    nome: "NeuroMind",
-    endereco: "Ed. Master Place, sala 810",
-    bairro: "Santa Lúcia",
-    cidade: "Vitória – ES",
-    telefones: [
-      { label: "(27) 3315-5228", tel: "+552733155228" },
-      { label: "(27) 98808-9679", tel: "+5527988089679" },
-    ],
-    whatsapp: "5527988089679",
-    maps: "https://www.google.com/maps/search/?api=1&query=Edificio+Master+Place+Santa+Lucia+Vitoria+ES",
-  },
-  {
-    nome: "Meridional Vitória",
-    endereco: "R. Des. José Fortunato Ribeiro, 30",
-    bairro: "Mata da Praia",
-    cidade: "Vitória - ES",
-    telefones: [{ label: "(27) 2122-4000", tel: "+552721224000" }],
-    maps: "https://www.google.com/maps/search/?api=1&query=R.+Des.+Jose+Fortunato+Ribeiro+30+Mata+da+Praia+Vitoria+ES",
-  },
-];
+import ConveniosModalButton from "./ConveniosModalButton";
+import { getPlanosDaUnidade, unidades } from "@/lib/atendimento";
 
 const PinIcon = () => (
   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,90 +45,115 @@ export default function Contato() {
           <DotPattern className="-top-7 -left-7 w-24 h-24 opacity-50" />
           <DotPattern className="-bottom-7 -right-7 w-24 h-24 opacity-50" />
           <div className="relative grid md:grid-cols-2 xl:grid-cols-4 gap-6">
-          {unidades.map((u) => (
-            <div
-              key={u.nome}
-              className="group flex flex-col bg-[#f5f5f4] rounded-3xl hover:-translate-y-1 transition-all duration-200 overflow-hidden"
-            >
-              <div className="relative h-28 overflow-hidden">
-                <Image
-                  src="/images/maps.png"
-                  alt=""
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f2444] via-[#0f2444]/70 to-[#0f2444]/20" />
-                <h3 className="absolute inset-x-0 bottom-0 px-6 py-4 text-text-on-dark font-bold section-heading text-lg leading-snug">
-                  {u.nome}
-                </h3>
-              </div>
+            {unidades.map((u) => {
+              const contatoHref = u.whatsapp
+                ? `https://wa.me/${u.whatsapp}`
+                : `tel:${u.telefones[0].tel}`;
+              const contatoLabel = u.whatsapp ? "Conversar no WhatsApp" : "Ligar agora";
 
-              <div className="flex flex-col flex-1 p-6">
-                {/* Endereço */}
-                <div className="flex items-start gap-3 mb-5">
-                  <span className="text-brand mt-0.5 shrink-0">
-                    <PinIcon />
-                  </span>
-                  <div className="text-sm text-text-body leading-relaxed">
-                    <p className="font-medium text-text-title">{u.endereco}</p>
-                    <p>{u.bairro}</p>
-                    <p>{u.cidade}</p>
+              return (
+                <div
+                  key={u.nome}
+                  className="group flex flex-col bg-[#f5f5f4] rounded-3xl hover:-translate-y-1 transition-all duration-200 overflow-hidden"
+                >
+                  <div className="relative h-28 overflow-hidden">
+                    <Image
+                      src="/images/maps.png"
+                      alt=""
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f2444] via-[#0f2444]/70 to-[#0f2444]/20" />
+                    <h3 className="absolute inset-x-0 bottom-0 px-6 py-4 text-text-on-dark font-bold section-heading text-lg leading-snug">
+                      {u.nome}
+                    </h3>
                   </div>
-                </div>
 
-                {/* Telefones */}
-                <div className="flex flex-col gap-2 mb-6">
-                  {u.telefones.map((t) => (
-                    <a
-                      key={t.tel}
-                      href={`tel:${t.tel}`}
-                      className="flex items-center gap-3 text-sm text-text-body hover:text-brand transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60"
-                    >
-                      <span className="text-brand shrink-0">
+                  <div className="flex flex-col flex-1 p-6">
+                    {/* Endereço */}
+                    <div className="flex items-start gap-3 mb-4">
+                      <span className="text-brand mt-0.5 shrink-0">
+                        <PinIcon />
+                      </span>
+                      <div className="text-sm text-text-body leading-relaxed">
+                        <p className="text-[11px] uppercase tracking-[0.16em] text-text-body/70 mb-1">
+                          Endereço
+                        </p>
+                        <p className="font-medium text-text-title">{u.endereco}</p>
+                        <p className="text-text-body/85">{u.bairro}</p>
+                        <p>{u.cidade}</p>
+                      </div>
+                    </div>
+
+                    {/* Telefones */}
+                    <div className="flex items-start gap-3 mb-5">
+                      <span className="text-brand mt-0.5 shrink-0">
                         <PhoneIcon />
                       </span>
-                      {t.label}
-                    </a>
-                  ))}
-                </div>
+                      <div className="space-y-1.5">
+                        <p className="text-[11px] uppercase tracking-[0.16em] text-text-body/70">
+                          Telefone
+                        </p>
+                        {u.telefones.map((t) => (
+                          <a
+                            key={t.tel}
+                            href={`tel:${t.tel}`}
+                            className="block text-sm text-text-title hover:text-brand transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/60"
+                          >
+                            {t.label}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
 
-                {/* Ações — primário consistente + "Ver no mapa" secundário */}
-                <div className="mt-auto flex flex-col gap-2">
-                  {u.whatsapp ? (
-                    <a
-                      href={`https://wa.me/${u.whatsapp}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-[#25d366] hover:bg-[#1ebe5d] text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
-                    >
-                      <WhatsAppIcon />
-                      WhatsApp
-                    </a>
-                  ) : (
-                    <a
-                      href={`tel:${u.telefones[0].tel}`}
-                      className="inline-flex items-center justify-center gap-2 bg-[#0f2444] hover:bg-[#1b3a6b] text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
-                    >
-                      <PhoneIcon />
-                      Ligar agora
-                    </a>
-                  )}
-                  <a
-                    href={u.maps}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 border border-[#0f2444] text-text-title hover:bg-[#0f2444] hover:text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
-                  >
-                    <span className="text-brand">
-                      <PinIcon />
-                    </span>
-                    Ver no mapa
-                  </a>
+                    {/* Ações */}
+                    <div className="mt-auto space-y-3.5">
+                      <div>
+                        {u.whatsapp ? (
+                          <a
+                            href={contatoHref}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex w-full items-center justify-center gap-2 bg-[#25d366] hover:bg-[#1ebe5d] text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+                          >
+                            <WhatsAppIcon />
+                            WhatsApp
+                          </a>
+                        ) : (
+                          <a
+                            href={contatoHref}
+                            className="inline-flex w-full items-center justify-center gap-2 bg-[#0f2444] hover:bg-[#1b3a6b] text-white font-semibold px-4 py-2.5 rounded-xl text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+                          >
+                            <PhoneIcon />
+                            Ligar agora
+                          </a>
+                        )}
+                      </div>
+
+                      <div className="pt-1 flex items-center gap-3">
+                        <ConveniosModalButton
+                          unidade={u.nome}
+                          planos={getPlanosDaUnidade(u)}
+                          contatoHref={contatoHref}
+                          contatoLabel={contatoLabel}
+                          triggerClassName="inline-flex whitespace-nowrap items-center text-[13px] font-medium text-text-body hover:text-text-title transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 rounded-md"
+                        />
+                        <span aria-hidden className="h-3.5 w-px bg-[#d9dce1]" />
+                        <a
+                          href={u.maps}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex whitespace-nowrap items-center text-[13px] font-medium text-text-body hover:text-text-title transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 rounded-md"
+                        >
+                          Ver no mapa
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              );
+            })}
           </div>
         </div>
       </div>

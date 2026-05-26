@@ -99,18 +99,6 @@ export default function Hero() {
             {/* Floating metric badges – same style as the availability badge */}
             {[
               {
-                to: 15,
-                suffix: "+",
-                label: "Anos de experiência",
-                pos: "top-[28%] md:top-[44%] -right-2 md:-right-8",
-                icon: (
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14a5 5 0 100-10 5 5 0 000 10z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.6 13.2L7 21l5-2.8L17 21l-1.6-7.8" />
-                  </svg>
-                ),
-              },
-              {
                 to: 2000,
                 suffix: "+",
                 label: "Cirurgias realizadas",
@@ -122,13 +110,14 @@ export default function Hero() {
                 ),
               },
               {
-                to: 98,
-                suffix: "%",
-                label: "Satisfação",
+                to: 15,
+                suffix: "+",
+                label: "Anos de experiência",
                 pos: "bottom-2 md:bottom-14 -right-1 md:-right-5",
                 icon: (
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12.6L12 20l-7.5-7.4a4.6 4.6 0 016.5-6.5L12 7l1-.9a4.6 4.6 0 016.5 6.5z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14a5 5 0 100-10 5 5 0 000 10z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.6 13.2L7 21l5-2.8L17 21l-1.6-7.8" />
                   </svg>
                 ),
               },

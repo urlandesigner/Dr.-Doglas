@@ -38,6 +38,15 @@ const especialidades: Especialidade[] = [
     procedimentos: ["Refluxo gastroesofágico", "Colecistectomia (vesícula)", "Cirurgia oncológica digestiva"],
     destaque: false,
   },
+  {
+    icon: "⚕️",
+    image: "/images/digestive.png",
+    titulo: "Endometriose Intestinal",
+    descricao:
+      "Avaliação e tratamento cirúrgico da endometriose que acomete o intestino, com abordagem multidisciplinar.",
+    procedimentos: ["Endometriose profunda", "Ressecção intestinal segmentar", "Cirurgia minimamente invasiva"],
+    destaque: false,
+  },
 ];
 
 const headerBase =
@@ -89,7 +98,7 @@ export default function Especialidades() {
         <div className="relative">
           <DotPattern className="-top-7 -left-7 w-24 h-24 opacity-50" />
           <DotPattern className="-bottom-7 -right-7 w-24 h-24 opacity-50" />
-          <div className="relative grid md:grid-cols-3 gap-6 items-stretch">
+          <div className="relative grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {especialidades.map((esp) => (
             <div
               key={esp.titulo}
@@ -139,11 +148,7 @@ export default function Especialidades() {
 
                 <a
                   href="#contato"
-                  className={`group mt-auto w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
-                    esp.destaque
-                      ? "bg-gradient-to-r from-[#0ea5e9] to-[#0284c7] text-white shadow-md shadow-[#0ea5e9]/20 hover:shadow-lg hover:shadow-[#0ea5e9]/30"
-                      : "border border-[#e2e8f0] text-text-title hover:border-[#0f2444] hover:bg-[#0f2444] hover:text-white"
-                  }`}
+                  className="group mt-auto w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-all duration-300 border border-[#e2e8f0] text-text-title hover:border-[#0f2444] hover:bg-[#0f2444] hover:text-white"
                 >
                   Agendar Consulta
                   <Arrow />

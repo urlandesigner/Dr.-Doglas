@@ -64,10 +64,10 @@ export default function Home() {
       },
       {
         "@type": "Hospital",
-        name: "Meridional Vitória",
+        name: "Hospital Meridional de Vitória",
         address: {
           "@type": "PostalAddress",
-          streetAddress: "R. Des. José Fortunato Ribeiro, 30",
+          streetAddress: "Rua Des. José Fortunato Ribeiro, 30",
           addressLocality: "Vitória",
           addressRegion: "ES",
           addressCountry: "BR",

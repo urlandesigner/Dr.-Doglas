@@ -1,43 +1,4 @@
-const conveniosPorLocal = [
-  {
-    local: "Meridional Cariacica",
-    planos: [
-      "Amil",
-      "Arcelor",
-      "Bradesco",
-      "Cassi",
-      "Cesan",
-      "Codesa",
-      "Gama",
-      "Medservice",
-      "Postal Saúde",
-    ],
-  },
-  {
-    local: "Meridional Vitória",
-    planos: [
-      "Assefaz",
-      "Banescaixa",
-      "Bradesco",
-      "Capesaúde",
-      "Cedoes",
-      "Cesan",
-      "Codesa",
-      "Gama",
-      "Geap",
-      "Life Empresarial",
-      "Marinha do Brasil",
-      "Meridional Saúde",
-      "Postal Saúde",
-      "Saúde Caixa",
-      "Sepaco",
-    ],
-  },
-  {
-    local: "Meridional Praia da Costa",
-    planos: ["Petrobras", "Saúde Caixa", "Cesan", "Medservice", "Vale/Pasa", "Sul América"],
-  },
-];
+import { conveniosPorLocal } from "@/lib/atendimento";
 
 export default function Convenios() {
   return (
