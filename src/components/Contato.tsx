@@ -43,6 +43,14 @@ const unidades: Unidade[] = [
     whatsapp: "5527988089679",
     maps: "https://www.google.com/maps/search/?api=1&query=Edificio+Master+Place+Santa+Lucia+Vitoria+ES",
   },
+  {
+    nome: "Meridional Vitória",
+    endereco: "R. Des. José Fortunato Ribeiro, 30",
+    bairro: "Mata da Praia",
+    cidade: "Vitória - ES",
+    telefones: [{ label: "(27) 2122-4000", tel: "+552721224000" }],
+    maps: "https://www.google.com/maps/search/?api=1&query=R.+Des.+Jose+Fortunato+Ribeiro+30+Mata+da+Praia+Vitoria+ES",
+  },
 ];
 
 const PinIcon = () => (
@@ -77,7 +85,7 @@ export default function Contato() {
           </h2>
           <div className="w-16 h-0.5 bg-[#B79853] mx-auto mt-5" />
           <p className="text-text-body mt-6 max-w-xl mx-auto">
-            O Dr. Doglas atende em três unidades. Escolha a mais próxima de você
+            O Dr. Doglas atende em quatro unidades. Escolha a mais próxima de você
             e entre em contato para marcar sua consulta.
           </p>
         </div>
@@ -86,7 +94,7 @@ export default function Contato() {
         <div className="relative">
           <DotPattern className="-top-7 -left-7 w-24 h-24 opacity-50" />
           <DotPattern className="-bottom-7 -right-7 w-24 h-24 opacity-50" />
-          <div className="relative grid md:grid-cols-3 gap-6">
+          <div className="relative grid md:grid-cols-2 xl:grid-cols-4 gap-6">
           {unidades.map((u) => (
             <div
               key={u.nome}

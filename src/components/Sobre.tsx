@@ -1,13 +1,16 @@
 import { ShowcaseCard } from "@/components/ui/showcase-card";
 
 const formacoes = [
-  { ano: "2005", titulo: "Graduação em Medicina", inst: "Universidade Federal" },
-  { ano: "2008", titulo: "Residência em Cirurgia Geral", inst: "Hospital das Clínicas" },
-  { ano: "2010", titulo: "Fellowship em Cirurgia Bariátrica", inst: "Hospital das Clínicas" },
-  { ano: "2012", titulo: "Especialização – Aparelho Digestivo", inst: "CBCD" },
+  { ano: "2008", titulo: "Graduação em Medicina", inst: "UFES" },
+  { ano: "2010-2012", titulo: "Residência em Cirurgia Geral", inst: "Hosp. Heliópolis" },
+  { ano: "2012-2014", titulo: "Residência em Cirurgia do Aparelho Digestivo", inst: "UFES" },
+  { ano: "2014-2015", titulo: "Residência em Transplante de Fígado", inst: "UFES" },
+  { ano: "2015", titulo: "Mestrado em Medicina", inst: "UFES" },
 ];
 
 const memberships = [
+  "Professor Adjunto de Cirurgia Gastroenterológica (UFES)",
+  "Mestre do capítulo ES do CBC nos biênios 2022-2023 e 2025-2027",
   "Conselho Federal de Medicina (CRM)",
   "Colégio Brasileiro de Cirurgiões (CBC)",
   "Sociedade Brasileira de Cirurgia Bariátrica (SBCBM)",
@@ -48,11 +51,11 @@ export default function Sobre() {
           <div>
             <h4 className="text-text-title font-bold text-lg mb-6">Formação Acadêmica</h4>
             <div className="relative">
-              <div className="absolute left-[22px] top-0 bottom-0 w-px bg-[#e2e8f0]" />
+              <div className="absolute left-[38px] top-0 bottom-0 w-px bg-[#e2e8f0]" />
               <ul className="space-y-7">
                 {formacoes.map((f, i) => (
                   <li key={i} className="flex gap-5 relative">
-                    <div className="w-11 h-11 rounded-full bg-[#0f2444] border-4 border-white shadow-md flex items-center justify-center shrink-0 z-10">
+                    <div className="w-[76px] h-11 rounded-full bg-[#0f2444] border-4 border-white shadow-md flex items-center justify-center shrink-0 z-10">
                       <span className="text-text-on-dark text-[10px] font-bold">{f.ano}</span>
                     </div>
                     <div className="pt-1.5">
@@ -82,6 +85,7 @@ export default function Sobre() {
               {[
                 { icon: "🏥", label: "Atende em consultório e hospital" },
                 { icon: "🔬", label: "Cirurgia laparoscópica" },
+                { icon: "🤖", label: "Cirurgia robótica" },
                 { icon: "💬", label: "Teleconsulta disponível" },
               ].map((item) => (
                 <div

@@ -6,7 +6,7 @@ const faqs = [
   {
     pergunta: "O Dr. Doglas atende por convênio?",
     resposta:
-      "Sim. Atendemos os principais planos de saúde, incluindo Bradesco Saúde, Amil, Cassi, Geap Saúde e Unimed Vitória. Recomendamos confirmar a cobertura do seu plano no momento do agendamento.",
+      "Sim. Atendemos por convênios, com cobertura variando conforme a unidade (Meridional Cariacica, Meridional Vitória e Meridional Praia da Costa). Consulte a seção de convênios e confirme seu plano no momento do agendamento.",
   },
   {
     pergunta: "Como funciona a primeira consulta?",

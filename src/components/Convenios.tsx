@@ -1,9 +1,42 @@
-const convenios = [
-  "Bradesco Saúde",
-  "Amil",
-  "Cassi",
-  "Geap Saúde",
-  "Unimed Vitória",
+const conveniosPorLocal = [
+  {
+    local: "Meridional Cariacica",
+    planos: [
+      "Amil",
+      "Arcelor",
+      "Bradesco",
+      "Cassi",
+      "Cesan",
+      "Codesa",
+      "Gama",
+      "Medservice",
+      "Postal Saúde",
+    ],
+  },
+  {
+    local: "Meridional Vitória",
+    planos: [
+      "Assefaz",
+      "Banescaixa",
+      "Bradesco",
+      "Capesaúde",
+      "Cedoes",
+      "Cesan",
+      "Codesa",
+      "Gama",
+      "Geap",
+      "Life Empresarial",
+      "Marinha do Brasil",
+      "Meridional Saúde",
+      "Postal Saúde",
+      "Saúde Caixa",
+      "Sepaco",
+    ],
+  },
+  {
+    local: "Meridional Praia da Costa",
+    planos: ["Petrobras", "Saúde Caixa", "Cesan", "Medservice", "Vale/Pasa", "Sul América"],
+  },
 ];
 
 export default function Convenios() {
@@ -27,14 +60,24 @@ export default function Convenios() {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-3">
-          {convenios.map((conv) => (
-            <span
-              key={conv}
-              className="bg-white border border-[#e7e5e4] text-text-title text-sm font-medium px-5 py-2.5 rounded-full shadow-sm transition-all duration-200 hover:border-[#d6d3d1] hover:shadow-md cursor-default"
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+          {conveniosPorLocal.map((item) => (
+            <article
+              key={item.local}
+              className="bg-white border border-[#e7e5e4] rounded-2xl p-5 shadow-sm"
             >
-              {conv}
-            </span>
+              <h3 className="text-text-title font-semibold text-base">{item.local}</h3>
+              <ul className="mt-4 flex flex-wrap gap-2.5">
+                {item.planos.map((plano) => (
+                  <li
+                    key={`${item.local}-${plano}`}
+                    className="bg-[#f6f6f4] border border-[#eceae8] text-text-title text-sm font-medium px-3.5 py-1.5 rounded-full"
+                  >
+                    {plano}
+                  </li>
+                ))}
+              </ul>
+            </article>
           ))}
         </div>
       </div>

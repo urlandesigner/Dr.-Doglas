@@ -29,7 +29,7 @@ const grupos = [
     categoria: "Aparelho Digestivo",
     cor: "#0f766e",
     items: [
-      { nome: "Refluxo Gastroesofágico", desc: "Tratamento cirúrgico da DRGE (fundoplicatura)." },
+      { nome: "Refluxo Gastroesofágico (DRGE)", desc: "Tratamento cirúrgico da DRGE (fundoplicatura)." },
       { nome: "Colecistectomia", desc: "Retirada da vesícula biliar por videolaparoscopia." },
       { nome: "Cirurgia Oncológica Digestiva", desc: "Tumores de esôfago, estômago, intestinos, fígado, pâncreas e baço." },
     ],
