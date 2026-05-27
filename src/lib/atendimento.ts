@@ -53,6 +53,10 @@ export const conveniosPorLocal: ConvenioLocal[] = [
     local: "Centro de Especialidades Praia da Costa",
     planos: ["Petrobras", "Saúde Caixa", "Cesan", "Medservice", "Vale/Pasa", "Sul América"],
   },
+  {
+    local: "NeuroMind",
+    planos: ["Unimed"],
+  },
 ];
 
 export const unidades: UnidadeAtendimento[] = [
@@ -79,6 +83,7 @@ export const unidades: UnidadeAtendimento[] = [
   },
   {
     nome: "NeuroMind",
+    convenioLocal: "NeuroMind",
     endereco: "Ed. Master Place, sala 810",
     bairro: "Santa Lúcia",
     cidade: "Vitória - ES",

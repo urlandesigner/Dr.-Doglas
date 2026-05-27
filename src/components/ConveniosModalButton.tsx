@@ -120,6 +120,17 @@ export default function ConveniosModalButton({
                     Entre em contato para confirmar disponibilidade e condições de atendimento.
                   </div>
                 )}
+
+                {/* Adendo reembolso */}
+                <div className="mt-5 flex items-start gap-3 rounded-2xl border border-[#d8bd75]/40 bg-[#fdf8ee] px-4 py-3.5">
+                  <svg className="mt-0.5 h-4 w-4 shrink-0 text-[#B79853]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20A10 10 0 0012 2z" />
+                  </svg>
+                  <p className="text-[13px] leading-relaxed text-[#7a5c1e]">
+                    <span className="font-semibold">Atendemos outros planos via reembolso</span> em todos os
+                    locais. Consulte as condições no momento do agendamento.
+                  </p>
+                </div>
               </div>
 
               <div className="flex flex-col gap-2 border-t border-[#eceae8] bg-[#fafaf9] px-6 py-5 sm:flex-row">

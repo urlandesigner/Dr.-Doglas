@@ -16,7 +16,7 @@ const especialidades: Especialidade[] = [
     image: "/images/digestive1.png",
     titulo: "Hérnias e Parede Abdominal",
     descricao:
-      "Hérnias e diástase abdominal por via minimamente invasiva (vídeo e robótica).",
+      "Hérnias e diástase tratadas por videolaparoscopia e cirurgia robótica.",
     procedimentos: ["Hérnias inguinais e umbilicais", "Hérnias incisionais", "Diástase do reto abdominal"],
     destaque: false,
   },
@@ -34,7 +34,7 @@ const especialidades: Especialidade[] = [
     image: "/images/stomach.png",
     titulo: "Aparelho Digestivo",
     descricao:
-      "Esôfago, estômago, intestinos, fígado, pâncreas e baço — doenças benignas e oncológicas.",
+      "Doenças do trato digestivo, benignas e oncológicas, do esôfago ao intestino.",
     procedimentos: ["Refluxo gastroesofágico", "Colecistectomia (vesícula)", "Cirurgia oncológica digestiva"],
     destaque: false,
   },
@@ -43,7 +43,7 @@ const especialidades: Especialidade[] = [
     image: "/images/digestive.png",
     titulo: "Endometriose Intestinal",
     descricao:
-      "Avaliação e tratamento cirúrgico da endometriose que acomete o intestino, com abordagem multidisciplinar.",
+      "Tratamento cirúrgico da endometriose profunda com equipe multidisciplinar.",
     procedimentos: ["Endometriose profunda", "Ressecção intestinal segmentar", "Cirurgia minimamente invasiva"],
     destaque: false,
   },
@@ -102,13 +102,11 @@ export default function Especialidades() {
           {especialidades.map((esp) => (
             <div
               key={esp.titulo}
-              className={`group/card flex flex-col rounded-3xl overflow-hidden bg-[#f5f5f4] transition-all duration-300 ${
-                esp.destaque ? "lg:-translate-y-3" : "hover:-translate-y-1"
-              }`}
+              className="group/card flex flex-col rounded-3xl overflow-hidden bg-[#f5f5f4] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
             >
               {/* Header */}
               <div
-                className="relative px-7 pt-7 pb-6 text-text-on-dark"
+                className="relative flex flex-col min-h-[226px] px-7 pt-7 pb-6 text-text-on-dark"
                 style={{ background: esp.destaque ? headerDestaque : headerBase }}
               >
                 <div className="flex items-center mb-5">
