@@ -7,102 +7,127 @@ import Procedimentos from "@/components/Procedimentos";
 import CirurgiaRobotica from "@/components/CirurgiaRobotica";
 import TransplanteOrgaos from "@/components/TransplanteOrgaos";
 import Depoimentos from "@/components/Depoimentos";
-import Convenios from "@/components/Convenios";
 import FAQ from "@/components/FAQ";
 import Contato from "@/components/Contato";
 import Footer from "@/components/Footer";
+import { faqs } from "@/lib/faq";
+import { unidades } from "@/lib/atendimento";
 
 export default function Home() {
-  const physicianJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Physician",
-    name: "Dr. Doglas Gobbi Marchesi",
-    medicalSpecialty: ["GeneralSurgery", "BariatricSurgery", "Gastroenterologic"],
-    areaServed: "Espírito Santo, Brasil",
-    sameAs: ["https://www.instagram.com/drdoglasmarchesi/"],
-  };
+  const siteUrl = "https://www.drdoglasgobbi.com.br";
+  const physicianId = `${siteUrl}/#physician`;
+  const clinicId = `${siteUrl}/#clinic`;
 
-  const clinicJsonLd = {
+  const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    name: "Dr. Doglas Gobbi Marchesi",
-    telephone: "+55 27 2122-4000",
-    areaServed: "Espírito Santo, Brasil",
-    department: [
+    "@graph": [
       {
-        "@type": "Hospital",
-        name: "Hospital Meridional Cariacica",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "Rua Meridional, 200",
-          addressLocality: "Cariacica",
-          addressRegion: "ES",
-          addressCountry: "BR",
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "Dr. Doglas Gobbi Marchesi",
+        inLanguage: "pt-BR",
+        publisher: { "@id": physicianId },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${siteUrl}/#webpage`,
+        url: siteUrl,
+        name: "Dr. Doglas Marchesi | Cirurgião Bariátrico em Vitória ES",
+        description:
+          "Cirurgião geral, bariátrico e do aparelho digestivo no Espírito Santo, com atendimento em Vitória, Vila Velha e Cariacica.",
+        isPartOf: { "@id": `${siteUrl}/#website` },
+        about: { "@id": physicianId },
+        primaryImageOfPage: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/images/image-doglas.png`,
         },
+        inLanguage: "pt-BR",
+      },
+      {
+        "@type": "Physician",
+        "@id": physicianId,
+        name: "Dr. Doglas Gobbi Marchesi",
+        alternateName: "Dr. Doglas Marchesi",
+        url: siteUrl,
+        image: `${siteUrl}/images/image-doglas.png`,
+        jobTitle: "Cirurgião geral, bariátrico e do aparelho digestivo",
+        description:
+          "Médico cirurgião com atuação em cirurgia geral, cirurgia bariátrica, cirurgia do aparelho digestivo, cirurgia robótica e captação de órgãos.",
+        identifier: [
+          { "@type": "PropertyValue", name: "CRM", value: "9607 ES" },
+          { "@type": "PropertyValue", name: "RQE", value: "9954" },
+          { "@type": "PropertyValue", name: "RQE", value: "8307" },
+        ],
+        medicalSpecialty: [
+          "Cirurgia Geral",
+          "Cirurgia Bariátrica",
+          "Cirurgia do Aparelho Digestivo",
+          "Cirurgia Robótica",
+        ],
+        knowsAbout: [
+          "Bypass gástrico",
+          "Sleeve gástrico",
+          "Revisão bariátrica",
+          "Hérnias da parede abdominal",
+          "Refluxo gastroesofágico",
+          "Colecistectomia",
+          "Endometriose intestinal",
+          "Cirurgia oncológica digestiva",
+          "Transplante de órgãos",
+        ],
+        alumniOf: [
+          { "@type": "CollegeOrUniversity", name: "Universidade Federal do Espírito Santo" },
+          { "@type": "Hospital", name: "Hospital Heliópolis" },
+        ],
+        memberOf: [
+          { "@type": "Organization", name: "Colégio Brasileiro de Cirurgiões" },
+          { "@type": "Organization", name: "Sociedade Brasileira de Cirurgia Bariátrica e Metabólica" },
+          { "@type": "Organization", name: "Colégio Brasileiro de Cirurgia Digestiva" },
+        ],
+        sameAs: ["https://www.instagram.com/drdoglasmarchesi/"],
+        worksFor: { "@id": clinicId },
+        areaServed: [
+          { "@type": "City", name: "Vitória" },
+          { "@type": "City", name: "Vila Velha" },
+          { "@type": "City", name: "Cariacica" },
+          { "@type": "State", name: "Espírito Santo" },
+        ],
       },
       {
         "@type": "MedicalClinic",
-        name: "Centro de Especialidades Praia da Costa",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "Rua Castelo Branco, 676",
-          addressLocality: "Vila Velha",
-          addressRegion: "ES",
-          addressCountry: "BR",
-        },
+        "@id": clinicId,
+        name: "Dr. Doglas Gobbi Marchesi",
+        url: siteUrl,
+        image: `${siteUrl}/images/image-doglas.png`,
+        telephone: "+55 27 2122-4000",
+        medicalSpecialty: ["Cirurgia Geral", "Cirurgia Bariátrica", "Cirurgia do Aparelho Digestivo"],
+        areaServed: "Espírito Santo, Brasil",
+        department: unidades.map((unidade) => ({
+          "@type": unidade.nome.includes("Hospital") ? "Hospital" : "MedicalClinic",
+          name: unidade.nome,
+          telephone: unidade.telefones.map((telefone) => telefone.tel),
+          hasMap: unidade.maps,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: unidade.endereco,
+            addressLocality: unidade.cidade.replace(" - ES", ""),
+            addressRegion: "ES",
+            addressCountry: "BR",
+          },
+        })),
       },
       {
-        "@type": "MedicalClinic",
-        name: "NeuroMind",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "Ed. Master Place, sala 810",
-          addressLocality: "Vitória",
-          addressRegion: "ES",
-          addressCountry: "BR",
-        },
-      },
-      {
-        "@type": "Hospital",
-        name: "Hospital Meridional de Vitória",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "Rua Des. José Fortunato Ribeiro, 30",
-          addressLocality: "Vitória",
-          addressRegion: "ES",
-          addressCountry: "BR",
-        },
-      },
-    ],
-  };
-
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "O Dr. Doglas atende por convênio?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Sim. Os convênios variam por unidade de atendimento, incluindo Meridional Cariacica, Meridional Vitória e Meridional Praia da Costa.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "As cirurgias são minimamente invasivas?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Sempre que indicado, os procedimentos são realizados por videolaparoscopia, com recuperação mais rápida e segura.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Como faço para agendar?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "O agendamento pode ser feito por telefone ou WhatsApp das unidades de atendimento.",
-        },
+        "@type": "FAQPage",
+        "@id": `${siteUrl}/#faq`,
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.pergunta,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.resposta,
+          },
+        })),
       },
     ],
   };
@@ -112,19 +137,7 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(physicianJsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(clinicJsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
       <Navbar />
@@ -136,7 +149,6 @@ export default function Home() {
         <Procedimentos />
         <CirurgiaRobotica />
         <TransplanteOrgaos />
-        {/* <Convenios /> */}
         <Depoimentos />
         <FAQ />
         <Contato />

@@ -2,45 +2,17 @@ import { DotPattern } from "./ui/dot-pattern";
 
 const depoimentos = [
   {
-    nome: "Maria S.",
-    cirurgia: "Bypass Gástrico",
+    nome: "Luciane Rodrigues",
+    cirurgia: "Cirurgia Bariátrica",
     texto:
-      "O Dr. Doglas transformou minha vida. Perdi 45kg em um ano e hoje tenho saúde e disposição que não tinha há décadas. O acompanhamento foi impecável do início ao fim.",
+      "O Dr. Douglas fiz bariátrica e estou ótima dr. Está de parabéns maravilhosa cirurgia. Tudo maravilhoso. Queria muito falar qualquer ora sobre isso. Sobre a bariátrica. Que para mim foi muito importante.",
     estrelas: 5,
   },
   {
-    nome: "Roberto A.",
-    cirurgia: "Colecistectomia",
+    nome: "Cirlene Pires Schuberth",
+    cirurgia: "Acompanhamento cirúrgico",
     texto:
-      "Fui operado de urgência pelo Dr. Doglas e fiquei impressionado com a competência e tranquilidade que ele transmitiu. Recuperação rápida e sem complicações.",
-    estrelas: 5,
-  },
-  {
-    nome: "Carla M.",
-    cirurgia: "Sleeve Gástrico",
-    texto:
-      "Tentei emagrecer por anos sem sucesso. Com o sleeve e o suporte do Dr. Marchesi, alcancei meu peso ideal e resolvi o diabetes tipo 2. Recomendo de olhos fechados.",
-    estrelas: 5,
-  },
-  {
-    nome: "José L.",
-    cirurgia: "Fundoplicatura",
-    texto:
-      "Sofria com refluxo severo há mais de 10 anos. Após a cirurgia com o Dr. Doglas, minha qualidade de vida melhorou imensamente. Profissional excepcional.",
-    estrelas: 5,
-  },
-  {
-    nome: "Ana P.",
-    cirurgia: "Herniorrafia",
-    texto:
-      "Cirurgia minimamente invasiva, sem dor no pós-operatório e retornei ao trabalho em uma semana. O Dr. Doglas é muito atencioso e cuidadoso com os pacientes.",
-    estrelas: 5,
-  },
-  {
-    nome: "Fernando R.",
-    cirurgia: "Bypass Gástrico",
-    texto:
-      "Já faz 3 anos da minha cirurgia bariátrica e mantive o resultado. O Dr. Doglas me acompanhou em cada etapa. É um profissional que se importa de verdade.",
+      "Vc e Dr Otávio foram um anjo na minha vida nas minhas orações nunca vou esquecer de pedir a Deus por vcs",
     estrelas: 5,
   },
 ];

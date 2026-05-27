@@ -19,42 +19,76 @@ const dmSerifDisplay = DM_Serif_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.drdoglasgobbi.com.br"),
-  title: "Dr. Doglas Gobbi Marchesi | Cirurgião Geral, Bariátrico e do Aparelho Digestivo",
+  applicationName: "Dr. Doglas Gobbi Marchesi",
+  title: {
+    default: "Dr. Doglas Marchesi | Cirurgião Bariátrico em Vitória ES",
+    template: "%s | Dr. Doglas Marchesi",
+  },
   description:
-    "Dr. Doglas Gobbi Marchesi – especialista em Cirurgia Geral, Cirurgia Bariátrica e Cirurgia do Aparelho Digestivo. Agende sua consulta.",
+    "Cirurgião geral, bariátrico e do aparelho digestivo no ES. Atendimento em Vitória, Vila Velha e Cariacica. Agende sua consulta com Dr. Doglas.",
   keywords: [
+    "Dr. Doglas Gobbi Marchesi",
+    "Dr. Doglas Marchesi",
+    "cirurgião bariátrico em Vitória",
+    "cirurgião bariátrico Espírito Santo",
     "cirurgião bariátrico",
     "cirurgia bariátrica",
     "cirurgia geral",
-    "aparelho digestivo",
-    "Dr. Doglas Marchesi",
+    "cirurgia do aparelho digestivo",
+    "cirurgia robótica",
+    "hérnia abdominal",
+    "endometriose intestinal",
+    "transplante de órgãos",
   ],
+  authors: [{ name: "Dr. Doglas Gobbi Marchesi", url: "https://www.drdoglasgobbi.com.br" }],
+  creator: "Dr. Doglas Gobbi Marchesi",
+  publisher: "Dr. Doglas Gobbi Marchesi",
+  category: "healthcare",
   alternates: {
     canonical: "/",
+    languages: {
+      "pt-BR": "/",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
     url: "/",
     siteName: "Dr. Doglas Gobbi Marchesi",
-    title: "Dr. Doglas Gobbi Marchesi | Cirurgião Geral, Bariátrico e do Aparelho Digestivo",
+    title: "Dr. Doglas Marchesi | Cirurgião Bariátrico em Vitória ES",
     description:
-      "Especialista em Cirurgia Geral, Bariátrica e do Aparelho Digestivo em Vitória e região. Agende sua consulta.",
+      "Cirurgia geral, bariátrica, robótica e do aparelho digestivo em Vitória, Vila Velha e Cariacica.",
     images: [
       {
         url: "/images/image-doglas.png",
         width: 1200,
         height: 630,
-        alt: "Dr. Doglas Gobbi Marchesi",
+        alt: "Dr. Doglas Gobbi Marchesi, cirurgião geral e bariátrico no Espírito Santo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dr. Doglas Gobbi Marchesi | Cirurgião Geral e Bariátrico",
+    title: "Dr. Doglas Marchesi | Cirurgião Bariátrico em Vitória ES",
     description:
-      "Atendimento em cirurgia geral, bariátrica e do aparelho digestivo em Vitória e região.",
+      "Atendimento em cirurgia geral, bariátrica e do aparelho digestivo em Vitória, Vila Velha e Cariacica.",
     images: ["/images/image-doglas.png"],
+  },
+  other: {
+    "geo.region": "BR-ES",
+    "geo.placename": "Vitória, Vila Velha e Cariacica",
+    "medical-specialty": "Cirurgia Geral, Cirurgia Bariátrica, Cirurgia do Aparelho Digestivo",
   },
 };
 

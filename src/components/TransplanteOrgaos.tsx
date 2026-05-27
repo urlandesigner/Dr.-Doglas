@@ -150,7 +150,7 @@ export default function TransplanteOrgaos() {
             </p>
 
             <p className="mt-5 text-[15px] font-semibold italic text-[#0b1c38]">
-              "O transplante renova a vida."
+              &ldquo;O transplante renova a vida.&rdquo;
             </p>
 
             {/* Destaques */}

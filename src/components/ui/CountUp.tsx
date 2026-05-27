@@ -25,8 +25,8 @@ export default function CountUp({
       "(prefers-reduced-motion: reduce)"
     ).matches;
     if (prefersReduced) {
-      setValue(to);
-      return;
+      const frame = requestAnimationFrame(() => setValue(to));
+      return () => cancelAnimationFrame(frame);
     }
 
     const start = () => {
